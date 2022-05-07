@@ -1,6 +1,7 @@
 package ru.itsrv23.hw212.servises;
 
 import org.springframework.stereotype.Service;
+import ru.itsrv23.hw212.exception.CustomIllegalArgumentException;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
@@ -23,7 +24,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Override
     public Integer divide(Integer num1, Integer num2) {
         if (num2 == 0) {
-            throw new IllegalArgumentException();
+            throw new CustomIllegalArgumentException("Деление на 0 запрещено. ");
         }
         return num1 / num2;
     }
